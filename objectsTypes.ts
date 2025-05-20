@@ -1,61 +1,57 @@
-const car: { type: string, mileage?: number} = {
-    type: "Toyota"
+
+// Example 1: Simple object type
+type Book = {
+    title: string;
+    author: string;
+    pages: number;
 };
 
-car.mileage = 2000;
-console.log(car)
-
-
-type User = {
-  name: string;
-  age: number;
+const myBook: Book = {
+    title: "TypeScript Basics",
+    author: "Jane Doe",
+    pages: 120
 };
 
-
-type Config = {
-  readonly apiKey: string;
-  timeout: number;
+// Example 2: Object with optional and readonly properties
+type Product = {
+    readonly id: number;
+    name: string;
+    price: number;
+    description?: string;
 };
 
-
-type Dictionary = {
-  [key: string]: string;
+const product: Product = {
+    id: 1,
+    name: "Laptop",
+    price: 999
 };
 
-// nested objects
-
-type Employee = {
-  id: number;
-  personalInfo: {
-    firstName: string;
-    lastName: string;
-  };
+// Example 3: Object with index signature
+type ErrorMessages = {
+    [code: string]: string;
 };
 
-
-// using record utility type
-
-type Roles = 'admin' | 'user' | 'guest';
-
-const rolePermissions: Record<Roles, string[]> = {
-  admin: ['read', 'write', 'delete'],
-  user: ['read', 'write'],
-  guest: ['read']
+const errors: ErrorMessages = {
+    "404": "Not Found",
+    "500": "Internal Server Error"
 };
 
-
-// function inside an object
-
-type Calculator = {
-  add: (a: number, b: number) => number;
-  subtract: (a: number, b: number) => number;
+// Example 4: Object with nested objects
+type Company = {
+    name: string;
+    address: {
+        street: string;
+        city: string;
+        zip: string;
+    };
 };
 
-
-//object with union types
-
-// type Response = {
-//   status: 'success' | 'error';
-//   data: string | null;
-// };
+const company: Company = {
+    name: "Tech Corp",
+    address: {
+        street: "123 Main St",
+        city: "Metropolis",
+        zip: "12345"
+    }
+};
 
